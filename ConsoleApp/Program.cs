@@ -43,3 +43,7 @@ for(int j = 0; j < fruits.Length; j++) {
 foreach(string z in fruits) {
     Console.WriteLine(z);//  apple  ,bananna
 }
+int result = 1 + 2 /1 * 3;// Multiplicative Operator * % / , addative operators + - 
+Console.WriteLine($"result is {result}");//7
+int result2 = 3 + 3 / 3 * 2 - 1 + 1;//3+2-1-1 >> 5
+Console.WriteLine($"result is {result2}");//7
