@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using ConsoleApp;
 
 Console.WriteLine("Hello, World!");
 Console.WriteLine("Hi");
@@ -27,12 +27,13 @@ string msg = "Hello";
 Console.WriteLine($"Message is {msg}");
 var now=DateTime.Now;
 Console.WriteLine($"Current Date Time is {now}");
-string day = "SAT";
+
+string day = "K";
 switch (day) {
-    case "SAT":Console.WriteLine("HAPPY Weekend");break;
+    case "SAT":Console.WriteLine("HAPPY Weekend"); break;
     case "SUN": Console.WriteLine("HAPPY Weekend"); break;
     case "MON": Console.WriteLine("DUTY Week"); break;
-    default: Console.WriteLine("Invalid Day");break;
+    default: Console.WriteLine("Invalid Day"); goto case "MON";
 }
 
 string[] fruits = { "apple","bananna","pineapple","stawabary"};
@@ -47,3 +48,7 @@ int result = (1 + 2) /1 * 3;// Multiplicative Operator * % / , addative operator
 Console.WriteLine($"result is {result}");//7 , 9
 int result2 = 3 + 3 / 3 * 2 - 1 + 1;
 Console.WriteLine($"result is {result2}");//5
+
+Test t = new Test();
+int r=t.Add();
+Console.WriteLine($"add result is {r}");//2
