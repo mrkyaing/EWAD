@@ -1,6 +1,7 @@
 ﻿using ConsoleApp;
+using StudentInfo;
+using TeacherInfo;
 
-Console.WriteLine("Hello, World!");
 Console.WriteLine("Hi");
 int i = 10;
 if(i%2 == 0) {
@@ -49,6 +50,33 @@ Console.WriteLine($"result is {result}");//7 , 9
 int result2 = 3 + 3 / 3 * 2 - 1 + 1;
 Console.WriteLine($"result is {result2}");//5
 
-Test t = new Test();
-int r=t.Add();
-Console.WriteLine($"add result is {r}");//2
+try {
+    Test t = new Test();
+    int r = t.Add();
+    Console.WriteLine($"add result is {r}");//2
+    int age = t.CheckAge(10);
+    Console.WriteLine($"Age is {age}"); // 10 
+}
+catch (Exception e) {
+    Console.WriteLine(e.Message);// invalid age 
+}
+
+Student student = new Student();
+student.Id = 10;
+student.Name = "Su Su";
+Console.WriteLine($"Student Id {student.Id} and Name {student.Name}"); // Student id 10 and Name Su Su
+
+Teacher teacher =new Teacher();
+teacher.Name = "U Ba";//set 
+Console.WriteLine(teacher.Name);//U Ba >> get  
+teacher.GetTotalMark();// 70 
+
+for(int jj = 1; jj <= 100; jj++) {
+    if(jj %2 == 0) {
+        break;
+    }
+    Console.WriteLine($"# {jj}"); //1 3 5 7 9 11...........................99 
+}
+
+CollectionPractice practice = new CollectionPractice();
+practice.SettingNumbers();
