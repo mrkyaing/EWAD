@@ -4,12 +4,13 @@ using TeacherInfo;
 
 Console.WriteLine("Hi");
 int i = 10;
-if(i%2 == 0) {
+if (i % 2 == 0) {
     Console.WriteLine("i is even number");
 }
 else {
     Console.WriteLine("i is odd number");
 }
+
 byte b = 10;
 Console.WriteLine("Byte value is " + b);//string concentation syntax style
 Console.WriteLine($"Byte value is {b}");//string interpolation syntax style
