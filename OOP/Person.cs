@@ -2,7 +2,7 @@
     public class Person {
        
         private int Id;
-        private string Name;
+        public string Name;
         private DateTime DOB;
         public string Address;
         private string Email;

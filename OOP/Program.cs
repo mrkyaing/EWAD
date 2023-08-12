@@ -35,17 +35,24 @@ Helper.Utilitity.Now();
 Helper.SayHi.SayHello();
 
 Console.WriteLine("============Encapsulation Demo============");
-Person p1 = new Person();
-p1.Id = 1;
-p1.Name = "Mg Mg";
-p1.Address = "YGN";
-p1.Email = "mgmg@gmail.com";
-p1.DOB = Convert.ToDateTime("1998-10-10");
-Person.SayHello("Hello,Nice to see you");
-p1.AboutMe();
 
-Person p2 = new Person();
-p2.Id = -503;
-p2.Name = "su su";
-p2.Email = "susu";
-p2.AboutMe();
+try {
+	Person p1 = new Person();
+	p1.SetId(1);
+	p1.Name = "Mg Mg";
+	p1.Address = "YGN";
+	p1.SetEmail("mgmg@gmail.com");
+	p1.SetDOB(Convert.ToDateTime("1998-10-10"));
+	Person.SayHello("Hello,Nice to see you");
+	p1.AboutMe();
+
+	Person p2 = new Person();
+	p2.SetId(-503);
+	p2.Name = "su su";
+	p2.SetEmail("susu");
+	p2.SetDOB(Convert.ToDateTime("2026-07-11"));
+	p2.AboutMe();
+}
+catch (Exception e) {
+	Console.WriteLine("Error" + e.Message);
+}
