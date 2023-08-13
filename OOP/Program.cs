@@ -47,12 +47,52 @@ try {
 	p1.AboutMe();
 
 	Person p2 = new Person();
-	p2.SetId(-503);
+	p2.SetId(503);//pass the data with Setter
 	p2.Name = "su su";
 	p2.SetEmail("susu");
-	p2.SetDOB(Convert.ToDateTime("2026-07-11"));
+	p2.SetDOB(Convert.ToDateTime("2022-07-11"));
 	p2.AboutMe();
+	Console.WriteLine($"email of person 2 {p2.GetEmail()}"); // get the data with Getter 
+
+    Person p3 = new Person();
+    p3.SetId(2);
+    p3.Name = "Saw";
+    p3.Address = "YGN";
+    p3.SetEmail("saw@gmail.com");
+    p3.SetDOB(Convert.ToDateTime("1998-10-10"));
+    Person.SayHello("Hello,Nice to see you");
+    p3.AboutMe();
 }
 catch (Exception e) {
 	Console.WriteLine("Error" + e.Message);
 }
+
+Student s1=new Student();
+s1.Name = "susu";
+s1.Address = "YGN";
+s1.Age = 20;
+s1.Email = "susu@gmil.com";
+s1.Phone = "09256275319";
+
+Console.WriteLine("Name" + s1.Name);
+
+Cat c = new Cat();
+c.Name = "jacky puccy";
+c.Color = "Yellow";
+c.Id = 1;
+c.Eat();
+c.CatchMices();
+c.Sleep();
+c.Walk();
+c.Speak();
+c.Sleep();
+
+Dog d = new Dog();
+d.Name = "Jame Dokker";
+d.Color = "Black";
+d.Eat();
+d.MakeSecurity();
+d.Sleep();
+d.Walk();
+d.Speak();
+d.Sleep();
