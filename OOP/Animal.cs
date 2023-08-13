@@ -1,6 +1,6 @@
 ﻿namespace OOP {
     public class Animal {
-		private int id;
+        private int id;
 		public int Id
 		{
 			get { return id; }

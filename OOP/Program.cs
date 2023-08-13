@@ -96,3 +96,38 @@ d.Sleep();
 d.Walk();
 d.Speak();
 d.Sleep();
+
+Dog d2 = new Dog(){
+	Name = "smith",
+	Color = "Black",
+	Id = 3
+};
+d2.MakeSecurity();
+d2.Sleep();
+d2.Speak();
+
+MyanmarPeople myanmar = new MyanmarPeople()
+{
+	Name = "Mg Mg",
+	Address="YGN"
+};
+JapanesePeople japanese = new JapanesePeople()
+{
+	Name = "Khoniee",
+	Address = "Toko"
+};
+EnglishPeople english = new EnglishPeople()
+{
+	Name = "David Jone",
+	Address = "USA"
+};
+
+myanmar.SayGreetingMessage();
+myanmar.DispalyInfo();
+myanmar.AboutMe();
+english.SayGreetingMessage();
+english.DispalyInfo();
+english.AboutMe();
+japanese.SayGreetingMessage();
+japanese.DispalyInfo();
+japanese.AboutMe();

@@ -1,5 +1,5 @@
 ﻿namespace OOP {
-    public class Cat:Animal {
+    public class Cat:Animal{
      public void CatchMices() {
             Console.WriteLine("Catching Mices");
         }
