@@ -6,6 +6,7 @@
 
         public override void SayGreetingMessage() {
             Console.WriteLine("Hoke Kae ,MinGaLarPar");
+         
         }
     }
 }

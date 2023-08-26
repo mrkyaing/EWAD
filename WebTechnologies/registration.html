@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <style>
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        #btnentry {
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+        }
+        
+        #btnCancel {
+            background-color: gray;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function entry() {
+            var code = document.getElementById("txtCode").value;
+            var name = document.getElementById("txtName").value;
+            alert("registration success.\n Your input data \n code:" + code + "name:" + name);
+        }
+
+        function cancel() {
+            document.getElementById("txtCode").value = document.getElementById("txtName").value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Student Entry</h1>
+    <form>
+        Code <input type="text" id="txtCode" placeholder="Student Code" /> Name
+        <input type="text" id="txtName" placeholder="Student Name" /> Email <input type="text" id="txtEmail" placeholder="Student Email" /> Date of Birth<input type="date" placeholder="Student DOB" id="txtDBO" /> Phone Number
+        <input type="text" placeholder="Student Phone" id="txtPhone" /> National Registration Card<input type="text" placeholder="Student NRC" id="txtNRC" /> Father Name<input type="text" placeholder="Student Father" id="txtFatherName" /> Address
+        <textarea cols="100" rows="3" id="txtAddress"></textarea> Bath Name
+        <select id="selBatch">
+            <option value="b1">JWD Batch2</option>
+            <option value="b1">EWAD1</option>
+        </select>
+        <button id="btnentry" onclick="entry()">Entry</button>
+        <button id="btnCancel" onclick="cancel()">Cancel</button>
+    </form>
+</body>
+
+</html>
