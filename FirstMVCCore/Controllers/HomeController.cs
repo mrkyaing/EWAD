@@ -24,7 +24,7 @@ namespace FirstMVCCore.Controllers {
         public ViewResult Calculate2Number() {
             return View();
         }
-        //https://localhost:home/calculate2number?n1=10&n2=3
+        //https://localhost:home/calculate2number
         [HttpPost]
         public ViewResult Calculate2Number(int n1,int n2) {
             ViewBag.n1=n1;
