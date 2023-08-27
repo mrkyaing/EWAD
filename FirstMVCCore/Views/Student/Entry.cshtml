@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Entry</title>
+    <style>
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #btnentry {
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+        }
+        #btnCancel {
+            background-color: gray;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Entry</h1>
+    <h3>@ViewData["result"], @ViewData["data"]</h3>
+    <form action="/student/entry" method="post">
+        Code <input type="text" id="txtCode" placeholder="Student Code"  name="code"/>
+        Name <input type="text" id="txtName" placeholder="Student Name" name="name"/> 
+        Email <input type="text" id="txtEmail" placeholder="Student Email" name="email"/> 
+        Date of Birth<input type="date" placeholder="Student DOB" id="txtDBO" name="dob"/> 
+        Phone Number<input type="text" placeholder="Student Phone" id="txtPhone" name="phonenumber"/> 
+        National Registration Card<input type="text" placeholder="Student NRC" id="txtNRC" name="nrc"/> 
+        Father Name<input type="text" placeholder="Student Father" id="txtFatherName" name="fathername"/> 
+        Address
+        <textarea cols="100" rows="3" id="txtAddress" name="address"></textarea> 
+        Bath Name
+        <select id="selBatch" name="batchId">
+            <option value="jwd">JWD Batch2</option>
+            <option value="ewad">EWAD1</option>
+        </select>
+        <button id="btnentry" type="submit">Entry</button>
+        <button id="btnCancel" type="reset">Cancel</button>
+    </form>
+</body>
+</html>
