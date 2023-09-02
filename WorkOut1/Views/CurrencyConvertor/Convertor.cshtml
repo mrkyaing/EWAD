@@ -1,0 +1,60 @@
+﻿<head>
+    <style>
+        input,
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #btnReset {
+            background-color: yellow;
+            color: black;
+            border-radius: 5px;
+        }
+        #btnConvert {
+            background-color: green;
+            color: black;
+            border-radius: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function FilledUI() {
+            if ("@ViewBag.SelectedCurrency" != "") {
+                document.getElementById("selCurrency").value = "@ViewBag.SelectedCurrency";
+            }
+            if ("@ViewBag.Amount"!= 0) {
+                document.getElementById("txtAmount").value = "@ViewBag.Amount";
+            }
+        }
+        function resetting(){
+            document.getElementById("txtReuslt").value=
+            document.getElementById("selCurrency").value = 
+            document.getElementById("txtAmount").value = "";
+        }
+    </script>
+</head>
+<body onload="FilledUI()">
+    <fieldset>
+        <legend style="text-align:center">Currency Convertor v1</legend>
+        <form action="/CurrencyConvertor/Convertor" method="post">
+            <label>Choose Currency:</label>
+            <select name="fromCurrency" id="selCurrency">
+                <option value="">--SELECT ONE--</option>
+                <option value="USD">USD</option>
+                <option value="SDG">SDG</option>
+                <option value="YAN">YAN</option>
+            </select>
+            <label>Amount:</label>
+            <input type="text" required name="amount" id="txtAmount" />
+            <label>Result:</label>
+            <input type="text" readonly value="@ViewBag.Result" id="txtReuslt"/>
+            <button type="submit" id="btnConvert">Convert</button>
+            <button type="button" id="btnReset" onclick="resetting()">Reset</button>
+        </form>
+    </fieldset>
+</body>
+

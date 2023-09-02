@@ -1,0 +1,72 @@
+﻿<head>
+    <style>
+        input,
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #btnReset {
+            background-color: yellow;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #btnConvert {
+            background-color: green;
+            color: black;
+            border-radius: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function FilledUI() {
+            if ("@ViewBag.FromCurrency" != "") {
+                document.getElementById("fromCurrency").value = "@ViewBag.FromCurrency";
+            }
+            if ("@ViewBag.ToCurrency" != "") {
+                document.getElementById("toCurrency").value = "@ViewBag.ToCurrency";
+            }
+            if ("@ViewBag.Amount" != 0) {
+                document.getElementById("txtAmount").value = "@ViewBag.Amount";
+            }
+        }
+        function resetting() {
+            document.getElementById("txtReuslt").value =
+                document.getElementById("selCurrency").value =
+                document.getElementById("txtAmount").value = "";
+        }
+    </script>
+</head>
+<body onload="FilledUI()">
+    <fieldset>
+        <legend style="text-align:center">Currency Convertor v2</legend>
+        <form action="/CurrencyConvertor/FromToConvertor" method="post">
+            <label>Source Currency:</label>
+            <select name="fromCurrency" id="fromCurrency">
+                <option value="">--SELECT ONE--</option>
+                <option value="USD">USD</option>
+                <option value="SDG">SDG</option>
+                <option value="MMK">MMK</option>
+            </select>
+            <label>Designation Currency:</label>
+            <select name="toCurrency" id="toCurrency">
+                <option value="">--SELECT ONE--</option>
+                <option value="USD">USD</option>
+                <option value="SDG">SDG</option>
+                <option value="MMK">MMK</option>
+            </select>
+            <label>Amount:</label>
+            <input type="text" required name="amount" id="txtAmount" />
+            <label>Result:</label>
+            <input type="text" readonly value="@ViewBag.Result" id="txtReuslt" />
+            <button type="submit" id="btnConvert">Convert</button>
+            <button type="button" id="btnReset" onclick="resetting()">Reset</button>
+        </form>
+    </fieldset>
+</body>
+
