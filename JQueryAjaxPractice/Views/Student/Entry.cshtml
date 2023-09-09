@@ -1,0 +1,29 @@
+﻿<form action="/student/entry" method="post">
+    <div class="form-group">
+    <label class="form-control">Id</label>
+    <input class="form-control" type="text" name="Id" required/>
+    </div>
+    <div class="form-group">
+        <label class="form-control">First Name</label>
+        <input class="form-control" type="text" name="FirstName" required />
+    </div>
+     <div class="form-group">
+    <label class="form-control">Last Name</label>
+    <input class="form-control" type="text" name="lastName" required/>
+    </div>
+    <div class="form-group">
+        <label class="form-control">Date Of Birth</label>
+        <input class="form-control" type="date" name="DOB" required />
+    </div>
+    <div class="form-group">
+        <label class="form-control">Address</label>
+       <textarea class="form-control" name="Address"></textarea>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    </div>
+    @if (ViewBag.Info != null)
+    {
+        <h1>@ViewBag.Info</h1>
+    }
+</form>

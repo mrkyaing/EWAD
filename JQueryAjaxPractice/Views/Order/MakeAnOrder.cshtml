@@ -14,11 +14,12 @@
 </form>
 <script>
     $("#btnMakeOrder").click(function (evt) {
+        debugger;
         evt.preventDefault();
         var anOrder = {};
-        anOrder.Id = $("#txtId").val();//o001
-        anOrder.Quantity = $("#txtQuantity").val()//3
-        anOrder.UnitPrice = $("#txtUnitPrice").val()//1000
+        anOrder.Id = $("#txtId").val();//get the input value of txt Id 
+        anOrder.Quantity = $("#txtQuantity").val();//get the input value of txt Quantity
+        anOrder.UnitPrice = $("#txtUnitPrice").val();//get the input value of txtUnitPrice
         var url = "/order/MakeAnOrder";
         $.ajax({
         type:"POST",
@@ -26,7 +27,7 @@
         data:anOrder,
         success: function (response) {
             var result = "Your Total Amount is " + response;
-            $("#txtYourTotal").html(result);
+            $("#txtYourTotal").html(result);//set the result to the h1 tag
             },
         failure: function (response) {
                 console.log("error");
