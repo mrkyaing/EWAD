@@ -1,0 +1,36 @@
+﻿<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<form>
+    <h1>Order information</h1>
+    <label>Id</label>
+    <input type="text" id="txtId"/>
+    <label>Quantity</label>
+    <input type="number" id="txtQuantity"/>
+    <label>Unit Price</label>
+    <input type="number" id="txtUnitPrice"/>
+    <button id="btnMakeOrder">make order</button>
+    <h1 id="txtYourTotal"></h1>
+</form>
+<script>
+    $("#btnMakeOrder").click(function (evt) {
+        evt.preventDefault();
+        var anOrder = {};
+        anOrder.Id = $("#txtId").val();//o001
+        anOrder.Quantity = $("#txtQuantity").val()//3
+        anOrder.UnitPrice = $("#txtUnitPrice").val()//1000
+        var url = "/order/MakeAnOrder";
+        $.ajax({
+        type:"POST",
+        url:url,
+        data:anOrder,
+        success: function (response) {
+            var result = "Your Total Amount is " + response;
+            $("#txtYourTotal").html(result);
+            },
+        failure: function (response) {
+                console.log("error");
+            }
+        });
+    });
+</script>

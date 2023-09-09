@@ -1,0 +1,24 @@
+﻿<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btnRefresh">Tell me time</button>
+    <label>Update Time:</label>
+    <h1 id="displayTime"></h1>
+    <button id="btnChangeBodyColor">change color</button>
+</body>
+<script>
+    //it will fire when user click the tell me time button
+    $("#btnRefresh").click(function (evt) {
+        evt.preventDefault();
+        var url = "/order/GetCurrentTime";
+        $.get(url, null, function (data) {//function (data) {} //callback function
+            $("#displayTime").html(data);//set the value at h1 tag 
+        });
+    });
+
+    $("#btnChangeBodyColor").click(function (e) {
+        e.preventDefault();
+        $("body").css("background-color", "blue");//change the background-color of this DOM
+    });
+</script>

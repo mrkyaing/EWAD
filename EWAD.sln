@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPDay2", "OOPDay2\OOPDay2.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstMVCCore", "FirstMVCCore\FirstMVCCore.csproj", "{C2F4E101-1C8D-4B46-8286-02D837F6ADEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkOut1", "WorkOut1\WorkOut1.csproj", "{E92349F7-8EB1-424C-92A9-8B9B1F9E6952}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkOut1", "WorkOut1\WorkOut1.csproj", "{E92349F7-8EB1-424C-92A9-8B9B1F9E6952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JQueryAjaxPractice", "JQueryAjaxPractice\JQueryAjaxPractice.csproj", "{907FF024-25B5-4FC5-95F2-C47493FFDF56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{E92349F7-8EB1-424C-92A9-8B9B1F9E6952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E92349F7-8EB1-424C-92A9-8B9B1F9E6952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E92349F7-8EB1-424C-92A9-8B9B1F9E6952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907FF024-25B5-4FC5-95F2-C47493FFDF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907FF024-25B5-4FC5-95F2-C47493FFDF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907FF024-25B5-4FC5-95F2-C47493FFDF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907FF024-25B5-4FC5-95F2-C47493FFDF56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
