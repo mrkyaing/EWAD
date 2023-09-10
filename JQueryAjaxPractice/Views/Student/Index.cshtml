@@ -1,0 +1,13 @@
+﻿<table class="table table-bordered">
+    <thead>
+        <tr>Student Info:</tr>
+    </thead>
+    <tbody>
+        @foreach (var s in (IEnumerable<string>)TempData["infos"])
+        {
+            <tr>
+                <td>@s</td>
+            </tr>
+        }
+        </tbody>
+</table>

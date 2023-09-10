@@ -1,29 +1,61 @@
 ﻿<form action="/student/entry" method="post">
-    <div class="form-group">
-    <label class="form-control">Id</label>
-    <input class="form-control" type="text" name="Id" required/>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Id</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Id" required>
+        </div>
     </div>
-    <div class="form-group">
-        <label class="form-control">First Name</label>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
         <input class="form-control" type="text" name="FirstName" required />
+        </div>
     </div>
-     <div class="form-group">
+     
+    <div class="row mb-3">
     <label class="form-control">Last Name</label>
     <input class="form-control" type="text" name="lastName" required/>
     </div>
-    <div class="form-group">
+    <div class="row mb-3">
         <label class="form-control">Date Of Birth</label>
         <input class="form-control" type="date" name="DOB" required />
     </div>
-    <div class="form-group">
-        <label class="form-control">Address</label>
-       <textarea class="form-control" name="Address"></textarea>
+    <div class="row mb-3">
+        <label class="form-control">Country</label>
+        <select name="HomeAddress.Country" class="form-control">
+            <option value="Myanmar">Myanmar</option>
+        </select>
     </div>
-    <div class="form-group">
+    <div class="row mb-3">
+        <label class="form-control">City</label>
+        <select name="HomeAddress.City" class="form-control">
+            <option value="Yangon">Yangon</option>
+            <option value="Mandalay">Mandalay</option>
+            <option value="Bago">Bago</option>
+        </select>
+    </div>
+    <div class="row mb-3">
+        <label class="form-control">Township</label>
+        <select name="HomeAddress.Township" class="form-control">
+            <option value="Hlaing">Hlaing</option>
+            <option value="KamarYaut">KamarYaut</option>
+            <option value="Mayangone">Mayangone</option>
+            <option value="Amarapura">Amarapura</option>
+        </select>
+    </div>
+    <div class="row mb-3">
+        <label class="form-control">Street</label>
+        <textarea class="form-control" name="HomeAddress.Street"></textarea>
+    </div>
+    <div class="row mb-3">
+        <label class="form-control">Postal Code</label>
+        <input class="form-contol" name="HomeAddress.PostalCode" class="form-control" />
+    </div>
+    <div class="row mb-3">
         <input class="btn btn-primary" type="submit" value="Submit" />
     </div>
     @if (ViewBag.Info != null)
     {
-        <h1>@ViewBag.Info</h1>
+        <h1 class="alert alert-success" role="alert">@ViewBag.Info</h1>
     }
 </form>

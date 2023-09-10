@@ -6,6 +6,15 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DOB { get; set; }
-        public string Address { get; set; }
+        public Address HomeAddress { get; set; }//Has-a Relationship mean Compsition with Address
+    }
+
+    public class Address
+    {
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Township { get; set; }
+        public string? PostalCode { get; set; }
+        public string? Street { get; set; }
     }
 }

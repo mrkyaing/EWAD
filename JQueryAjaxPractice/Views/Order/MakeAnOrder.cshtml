@@ -16,7 +16,7 @@
     $("#btnMakeOrder").click(function (evt) {
         debugger;
         evt.preventDefault();
-        var anOrder = {};
+        var anOrder = {};//must be the same with Model Object 
         anOrder.Id = $("#txtId").val();//get the input value of txt Id 
         anOrder.Quantity = $("#txtQuantity").val();//get the input value of txt Quantity
         anOrder.UnitPrice = $("#txtUnitPrice").val();//get the input value of txtUnitPrice
