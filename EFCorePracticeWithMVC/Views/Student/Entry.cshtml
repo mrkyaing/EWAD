@@ -1,0 +1,42 @@
+﻿<form action="/student/entry" method="post">
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Code" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="FirstName" required />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="LastName" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Date Of Birth</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="date" name="DOB" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <textarea name="Address" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <input class="btn btn-primary" type="submit" value="Save" />
+        </div>
+    </div>
+    @if (ViewBag.Info != null)
+    {
+        <h1 class="alert alert-success" role="alert">@ViewBag.Info</h1>
+    }
+</form>
