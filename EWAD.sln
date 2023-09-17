@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkOut1", "WorkOut1\WorkOu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JQueryAjaxPractice", "JQueryAjaxPractice\JQueryAjaxPractice.csproj", "{907FF024-25B5-4FC5-95F2-C47493FFDF56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCorePracticeWithMVC", "EFCorePracticeWithMVC\EFCorePracticeWithMVC.csproj", "{A09708C9-8DA7-45A2-BC89-00898A3AD494}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCorePracticeWithMVC", "EFCorePracticeWithMVC\EFCorePracticeWithMVC.csproj", "{A09708C9-8DA7-45A2-BC89-00898A3AD494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudPOS", "CloudPOS\CloudPOS.csproj", "{ACE143E7-DB3D-4E0A-BF59-858674C74CCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A09708C9-8DA7-45A2-BC89-00898A3AD494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A09708C9-8DA7-45A2-BC89-00898A3AD494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A09708C9-8DA7-45A2-BC89-00898A3AD494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE143E7-DB3D-4E0A-BF59-858674C74CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE143E7-DB3D-4E0A-BF59-858674C74CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE143E7-DB3D-4E0A-BF59-858674C74CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE143E7-DB3D-4E0A-BF59-858674C74CCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,37 @@
+﻿@model IList<CategoryViewModel>
+<h1>Category Information</h1><hr />
+@if (TempData["Info"] != null)
+{
+    <h3 class="alert alert-success" role="alert">@TempData["Info"]</h3>
+}
+<a href="/category/entry" class="btn btn-primary" role="button"><i class="bi bi-plus-circle-fill"></i>Add</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Code</th>
+            <th scope="col">Description</th>
+             <th scope="col">Created At</th>
+             <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach(var c in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@c.Code</td>
+                <td>@c.Description</td>
+                <td>@c.CreatedAt</td>
+                <td>
+                    <a href="" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
+                    <a href="/category/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
