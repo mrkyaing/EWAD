@@ -15,7 +15,7 @@
 -  Email Sending & OPT Verification process for KYC (Know Your Customer)
 -  Reporting with RDLC
 -  JavaScript & jQuery, AJAX, CSS & HTML5
--  Razor View & UI/UX With Bootstrap 3.3 & JQuery 3.3
+-  Razor View & UI/UX With Bootstrap 3.3 (https://icons.getbootstrap.com/) & JQuery 3.3
 -  Paging & Sorting With JQuery DataTables.net  (credit:https://datatables.net/  )
 -  Admin Dashboard With AdminLTE (credit: https://adminlte.io/ )
 -  Public Website Template (credit: https://www.free-css.com/ )
