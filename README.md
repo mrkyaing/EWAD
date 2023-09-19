@@ -8,7 +8,7 @@
 -  MVC (Model-View-Controller) Architecture Pattern
 -  ASP.NET  Core MVC5 With Repository Architecture Pattern
 -  Data Storages With MS SQL Server 2014/2019 Express/Developer Edition
--  ORM (Object Relational Mapper) With Entity Framework Core 7.0
+-  ORM (Object Relational Mapper) With Entity Framework Core 6.0
 -  LINQ (Language-Integrated Query)
 -  Authentication & Authorization With ASP.NET  Core Identity Membership
 -  Email Sending & OPT Verification process for KYC (Know Your Customer)
