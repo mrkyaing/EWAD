@@ -1,11 +1,15 @@
 ﻿@model IList<CategoryViewModel>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="~/lib/datatables/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+</head>
 <h1>Category Information</h1><hr />
 @if (TempData["Info"] != null)
 {
     <h3 class="alert alert-success" role="alert">@TempData["Info"]</h3>
 }
 <a href="/category/entry" class="btn btn-primary" role="button"><i class="bi bi-plus-circle-fill"></i>Add</a>
-<table class="table">
+<table class="table" id="categoryTable">
     <thead>
         <tr>
             <th scope="col">Sr.No</th>
@@ -27,7 +31,7 @@
                 <td>@c.Description</td>
                 <td>@c.CreatedAt</td>
                 <td>
-                    <a href="" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
+                    <a href="/category/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
                     <a href="/category/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
                 </td>
             </tr>
@@ -35,3 +39,12 @@
         }
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        $("#categoryTable").DataTable();
+    });
+</script>
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.datatables.min.js"></script>
+    <script src="~/lib/datatables/js/datatables.bootstrap4.min.js"></script>
+}
