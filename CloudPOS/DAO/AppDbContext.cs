@@ -11,5 +11,6 @@ namespace CloudPOS.DAO
      //define the Entities for database DB Sets
      public DbSet<CategoryEntity> Categories { get; set; }
      public DbSet<BrandEntity> Brands { get; set; }
+     public DbSet<ItemEntity> Items { get; set; }
     }
 }

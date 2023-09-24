@@ -65,7 +65,6 @@ namespace CloudPOS.Controllers
                     _context.SaveChanges();
                     TempData["Info"] = "Successfully delete a record from the system";
                 }
-               
             }
             catch (Exception e)
             {
