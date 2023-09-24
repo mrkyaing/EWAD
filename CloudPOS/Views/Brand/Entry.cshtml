@@ -1,0 +1,29 @@
+﻿<form action="/brand/entry" method="post">
+    @if (ViewBag.Info != null)
+    {
+        <h1 class="alert alert-success" role="alert">@ViewBag.Info</h1>
+    }
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Code" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="Name" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Manufactured Company</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="ManufacturedCompany" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Entry</button>
+        </div>
+    </div>
+</form>

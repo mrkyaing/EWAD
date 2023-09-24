@@ -1,0 +1,32 @@
+﻿@model BrandViewModel
+<form action="/brand/update" method="post">
+    @if (ViewBag.Info != null)
+    {
+        <h1 class="alert alert-success" role="alert">@ViewBag.Info</h1>
+    }
+    <div class="row mb-3">
+        <input type="hidden" name="Id" value="@Model.Id"/>
+        
+        <label class="col-sm-2 col-form-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Code" value="@Model.Code" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="Name" value="@Model.Name" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">ManufacturedCompany</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="ManufacturedCompany" value="@Model.ManufacturedCompany" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Update</button>
+        </div>
+    </div>
+</form>

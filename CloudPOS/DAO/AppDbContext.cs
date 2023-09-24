@@ -8,7 +8,8 @@ namespace CloudPOS.DAO
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
-        //define the Entities for database DB Sets
+     //define the Entities for database DB Sets
      public DbSet<CategoryEntity> Categories { get; set; }
+     public DbSet<BrandEntity> Brands { get; set; }
     }
 }

@@ -1,0 +1,52 @@
+﻿@model IList<BrandViewModel>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="~/lib/datatables/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<h1>Brand Information</h1><hr />
+@if (TempData["Info"] != null)
+{
+    <h3 class="alert alert-success" role="alert">@TempData["Info"]</h3>
+}
+<a href="/brand/entry" class="btn btn-primary" role="button"><i class="bi bi-plus-circle-fill"></i>Add</a>
+<table class="table" id="brandTable">
+    <thead>
+        <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Manufactured Company</th>
+             <th scope="col">Created At</th>
+             <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach(var c in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@c.Code</td>
+                <td>@c.Name</td>
+                <td>@c.ManufacturedCompany</td>
+                <td>@c.CreatedAt</td>
+                <td>
+                    <a href="/brand/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
+                    <a href="/brand/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $("#brandTable").DataTable();
+    });
+</script>
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.datatables.min.js"></script>
+    <script src="~/lib/datatables/js/datatables.bootstrap4.min.js"></script>
+}
