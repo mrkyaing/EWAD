@@ -5,7 +5,9 @@ namespace CloudPOS.UnitOfWorks
     public interface IUnitOfWork
     {
         IItemRepository ItemRepository { get; }
-        void Commit();//insert,update,delete
+        ICategoryRepository CategoryRepository { get; }
+        IBrandRepository BrandRepository { get; }
+        void Commit();//insert,update,delete,reterive 
         void Rollback();//rollback process when CRUD process occur errors
     }
 }

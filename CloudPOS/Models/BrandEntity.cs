@@ -8,5 +8,6 @@ namespace CloudPOS.Models
         public string Code { get; set; }
         public string Name { get; set; }
         public string? ManufacturedCompany { get; set; }
+        public virtual ICollection<ItemEntity>? Items { get; set; }
     }
 }

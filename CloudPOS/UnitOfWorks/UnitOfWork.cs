@@ -5,8 +5,15 @@ namespace CloudPOS.UnitOfWorks
 {
     public class UnitOfWork : IUnitOfWork
     {
+        #region define the constructor
         private readonly AppDbContext _appDbContext;
+        public UnitOfWork(AppDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
+        #endregion
 
+        #region define the itemRepository
         private IItemRepository _itemRepository;
         public IItemRepository ItemRepository
         {
@@ -15,10 +22,25 @@ namespace CloudPOS.UnitOfWorks
                 return _itemRepository = _itemRepository ?? new ItemRepository(_appDbContext);
             }
         }
-        public UnitOfWork(AppDbContext appDbContext)
+        #endregion
+
+        #region define the categoryRepository
+        private ICategoryRepository _categoryRepository;
+        public ICategoryRepository CategoryRepository
         {
-            _appDbContext = appDbContext;
+            get { return _categoryRepository = _categoryRepository ?? new CateogryRepository(_appDbContext); }
         }
+        #endregion
+
+        #region define the brandRepository
+        private IBrandRepository _brandRepository;
+        public IBrandRepository BrandRepository
+        {
+            get { return _brandRepository = _brandRepository ?? new BrandRepository(_appDbContext); }
+        }
+        #endregion
+
+        #region define the transactions methods
         public void Commit()
         {
            _appDbContext.SaveChanges();
@@ -28,5 +50,6 @@ namespace CloudPOS.UnitOfWorks
         {
             _appDbContext.Dispose();
         }
+        #endregion
     }
 }

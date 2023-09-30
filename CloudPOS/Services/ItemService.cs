@@ -7,11 +7,7 @@ namespace CloudPOS.Services
     public class ItemService : IItemService
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public ItemService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        public ItemService(IUnitOfWork unitOfWork)=>_unitOfWork = unitOfWork;
         public void Create(ItemViewModel itemViewModel)
         {
             //Data Transfer from view model to entity to store the recrod to the database!!
@@ -38,16 +34,16 @@ namespace CloudPOS.Services
         {
             return _unitOfWork.ItemRepository.ReteriveAll().Select(s=>new ItemViewModel
             {
-                Id=s.Id,
+                Id = s.Id,
                 ItemCode=s.ItemCode,
                 ItemDescription=s.ItemDescription,
                 SalePrice=s.SalePrice,
                 PurchasePrice=s.PurchasePrice,
-                CategoryId = s.CategoryId,
-                BrandId=s.BrandId
+                //s.Brand.name,
+                BrandInfo=_unitOfWork.BrandRepository.ReteriveBy(r=>r.Id==s.BrandId).FirstOrDefault().Name,
+                CategoryInfo= _unitOfWork.CategoryRepository.ReteriveBy(r => r.Id == s.CategoryId).FirstOrDefault().Description,
             }).OrderBy(o=>o.ItemCode);
         }
-
         public void Update(ItemViewModel itemViewModel)
         {
             throw new NotImplementedException();
