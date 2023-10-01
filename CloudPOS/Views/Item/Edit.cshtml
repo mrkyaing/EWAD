@@ -1,0 +1,61 @@
+﻿@model ItemViewModel
+<form action="/item/update" method="post">
+    @if (ViewBag.Info != null)
+    {
+        <h1 class="alert alert-success" role="alert">@ViewBag.Info</h1>
+    }
+    <input type="hidden" name="Id" value="@Model.Id"/>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="ItemCode" value="@Model.ItemCode" required>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="ItemDescription" value="@Model.ItemDescription" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Purchase Price</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" name="PurchasePrice" value="@Model.PurchasePrice" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Sale Price</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" name="SalePrice" value="@Model.SalePrice" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Brand</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="BrandId">
+                <option value="@Model.BrandId">@Model.BrandInfo</option>
+                @foreach (var b in ViewBag.Brands)
+                {
+                    <option value="@b.Id">@b.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="CategoryId">
+                <option value="@Model.CategoryId">@Model.CategoryInfo</option>
+                @foreach (var c in ViewBag.Categories)
+                {
+                    <option value="@c.Id">@c.Description</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Update</button>
+        </div>
+    </div>
+</form>

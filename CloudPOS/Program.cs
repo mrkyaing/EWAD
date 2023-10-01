@@ -1,6 +1,7 @@
 using CloudPOS.DAO;
 using CloudPOS.Services;
 using CloudPOS.UnitOfWorks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,11 @@ builder.Services.AddTransient<IBrandService, BrandService>();//register the bran
 var config = builder.Configuration;//create a config object to get the connectionSetting from appSetting.json
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(config.GetConnectionString("DefaultConnectionString")));//getting the connection
+//for enable identity
+builder.Services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders();
+builder.Services.AddRazorPages();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -23,6 +29,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(name: "default",pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
 app.Run();
