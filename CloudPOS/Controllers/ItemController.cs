@@ -1,6 +1,7 @@
 ﻿using CloudPOS.DAO;
 using CloudPOS.Models.ViewModels;
 using CloudPOS.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CloudPOS.Controllers
@@ -19,12 +20,14 @@ namespace CloudPOS.Controllers
         }
 
         #region create process for new record
+        [Authorize(Roles = "admin")]
         public IActionResult Entry()
         {
             ViewBag.Categories = _categoryService.GetAll();
             ViewBag.Brands = _brandService.GetAll();
             return View();
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult Entry(ItemViewModel viewModel)
         {
@@ -43,6 +46,7 @@ namespace CloudPOS.Controllers
         #endregion 
 
         public IActionResult List()=>View(_itemService.GetAll());
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(string Id)
         {
             try
@@ -56,7 +60,7 @@ namespace CloudPOS.Controllers
             }
             return RedirectToAction("List");
         }
-
+        [Authorize(Roles = "admin")]
         public IActionResult Edit(string Id)
         {
             try
@@ -72,6 +76,7 @@ namespace CloudPOS.Controllers
             }
             return View();
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult Update(ItemViewModel viewModel)
         {

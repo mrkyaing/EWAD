@@ -1,5 +1,6 @@
 ﻿using CloudPOS.Models.ViewModels;
 using CloudPOS.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -13,7 +14,9 @@ namespace CloudPOS.Controllers
         #endregion
 
         #region create process for new record
+        [Authorize(Roles ="admin")]
         public IActionResult Entry() => View();
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult Entry(CategoryViewModel viewModel)
         {
@@ -36,6 +39,7 @@ namespace CloudPOS.Controllers
         #endregion
 
         #region update process for existing record
+        [Authorize(Roles = "admin")]
         public IActionResult Edit(string Id)//1
         {
             CategoryViewModel categoryViewModel = _categoryService.GetBy(Id);
@@ -48,6 +52,7 @@ namespace CloudPOS.Controllers
                 return RedirectToAction("List");
             }
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult Update(CategoryViewModel viewModel)
         {
@@ -65,6 +70,7 @@ namespace CloudPOS.Controllers
         #endregion
 
         #region delete process for existing record
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(string Id)
         {
             try

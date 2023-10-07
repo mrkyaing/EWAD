@@ -1,5 +1,6 @@
 ﻿using CloudPOS.Models.ViewModels;
 using CloudPOS.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CloudPOS.Controllers
@@ -11,9 +12,9 @@ namespace CloudPOS.Controllers
         public BrandController(IBrandService brandService)=>this._brandService = brandService;
 
         public IActionResult List()=>View(_brandService.GetAll());
-
+        [Authorize(Roles = "admin")]
         public IActionResult Entry() => View();
-
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult Entry(BrandViewModel viewModel)
         {
@@ -29,6 +30,7 @@ namespace CloudPOS.Controllers
             }
             return RedirectToAction("List");
         }
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(string Id)
         {
             try
@@ -46,7 +48,7 @@ namespace CloudPOS.Controllers
             }
             return RedirectToAction("List");
         }
-
+        [Authorize(Roles = "admin")]
         public IActionResult Edit(string Id)//1
         {
             var viewModel=_brandService.GetBy(Id);
@@ -58,6 +60,7 @@ namespace CloudPOS.Controllers
                 return RedirectToAction("List");
             }
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
        public IActionResult Update(BrandViewModel viewModel)
         {

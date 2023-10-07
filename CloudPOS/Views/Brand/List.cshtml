@@ -17,7 +17,10 @@
             <th scope="col">Name</th>
             <th scope="col">Manufactured Company</th>
              <th scope="col">Created At</th>
-             <th>Actions</th>
+            @if (User.IsInRole("admin"))
+            {
+                <th>Actions</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -32,10 +35,13 @@
                 <td>@c.Name</td>
                 <td>@c.ManufacturedCompany</td>
                 <td>@c.CreatedAt</td>
-                <td>
-                    <a href="/brand/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
+                @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        <a href="/brand/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
                     <a href="/brand/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
                 </td>
+                }
             </tr>
             i++;
         }

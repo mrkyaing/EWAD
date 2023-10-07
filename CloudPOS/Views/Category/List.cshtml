@@ -16,7 +16,11 @@
             <th scope="col">Code</th>
             <th scope="col">Description</th>
              <th scope="col">Created At</th>
-             <th>Actions</th>
+            @if (User.IsInRole("admin"))
+            {
+                <th>Actions</th>
+            }
+           
         </tr>
     </thead>
     <tbody>
@@ -30,10 +34,13 @@
                 <td>@c.Code</td>
                 <td>@c.Description</td>
                 <td>@c.CreatedAt</td>
-                <td>
-                    <a href="/category/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
+                @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        <a href="/category/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
                     <a href="/category/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
                 </td>
+                }
             </tr>
             i++;
         }
