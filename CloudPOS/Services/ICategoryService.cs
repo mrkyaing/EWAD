@@ -1,13 +1,14 @@
-﻿using CloudPOS.Models.ViewModels;
+﻿using CloudPOS.Models;
+using CloudPOS.Models.ViewModels;
 
 namespace CloudPOS.Services
 {
     public interface ICategoryService
     {
-        void Create(CategoryViewModel viewModel);
+        CategoryEntity Create(CategoryViewModel viewModel);
         IEnumerable<CategoryViewModel> GetAll();
         CategoryViewModel GetBy(string Id);
-        void Update(CategoryViewModel viewModel);
-        void Delete(string Id);
+        CategoryEntity Update(CategoryViewModel viewModel);
+        bool Delete(string Id);
     }
 }

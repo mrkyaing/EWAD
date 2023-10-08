@@ -12,31 +12,45 @@ namespace CloudPOS.Services
             _unitOfWork = unitOfWork;
         }
         #endregion
-
         #region create process by doing  Data Transfer from viewModel to Entity
-        public void Create(CategoryViewModel viewModel)
+        public CategoryEntity Create(CategoryViewModel viewModel)
         {
-           
-            var categoryEntity = new CategoryEntity()
+            try
             {
-                Id = Guid.NewGuid().ToString(),
-                Code = viewModel.Code,
-                Description = viewModel.Description
-            };
-            _unitOfWork.CategoryRepository.Create(categoryEntity);
-            _unitOfWork.Commit();
-        }
-        #endregion
-        public void Delete(string Id)
-        {
-            var category = _unitOfWork.CategoryRepository.ReteriveBy(x => x.Id == Id).FirstOrDefault();
-            if (category != null)
-            {
-                _unitOfWork.CategoryRepository.Delete(category);
+                var categoryEntity = new CategoryEntity()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Code = viewModel.Code,
+                    Description = viewModel.Description
+                };
+                _unitOfWork.CategoryRepository.Create(categoryEntity);
                 _unitOfWork.Commit();
+                return categoryEntity;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
-
+        #endregion
+        public bool Delete(string Id)
+        {
+            try
+            {
+                var category = _unitOfWork.CategoryRepository.ReteriveBy(x => x.Id == Id).FirstOrDefault();
+                if (category != null)
+                {
+                    _unitOfWork.CategoryRepository.Delete(category);
+                    _unitOfWork.Commit();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
+        }
         public IEnumerable<CategoryViewModel> GetAll()
         {
             IList<CategoryViewModel> categories = _unitOfWork.CategoryRepository.ReteriveAll()
@@ -49,7 +63,6 @@ namespace CloudPOS.Services
                                                 }).ToList();
             return categories;
         }
-
         public CategoryViewModel GetBy(string Id)
         {
               return _unitOfWork.CategoryRepository.ReteriveBy(x=>x.Id== Id)
@@ -57,22 +70,29 @@ namespace CloudPOS.Services
                               {
                                   Id = s.Id,
                                   Code = s.Code,
-                                  Description = s.Description
+                                  Description = s.Description,
+                                  CreatedAt=s.CreatedAt
                               }).SingleOrDefault();
         }
-
-        public void Update(CategoryViewModel viewModel)
+        public CategoryEntity Update(CategoryViewModel viewModel)
         {
-            //Data Transfer from viewModel to Entity
-            var categoryEntity = new CategoryEntity()
+            try
             {
-                Id = viewModel.Id,
-                Code = viewModel.Code,
-                Description = viewModel.Description,
-                ModifiedAt = DateTime.Now
-            };
-            _unitOfWork.CategoryRepository.Update(categoryEntity);
-            _unitOfWork.Commit();
+                var categoryEntity = new CategoryEntity()
+                {
+                    Id = viewModel.Id,
+                    Code = viewModel.Code,
+                    Description = viewModel.Description,
+                    ModifiedAt = DateTime.Now
+                };
+                _unitOfWork.CategoryRepository.Update(categoryEntity);
+                _unitOfWork.Commit();
+                return categoryEntity;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

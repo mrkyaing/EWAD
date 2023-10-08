@@ -10,7 +10,7 @@ namespace CloudPOSUnitTest
     {
         public int Add(int n1,int n2)//1+2 ==>>3 
         {
-            return n1 + n2-3;
+            return n1 + n2;
         }
     }
 }
