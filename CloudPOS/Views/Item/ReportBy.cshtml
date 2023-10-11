@@ -1,0 +1,45 @@
+﻿<form action="/item/ReportBy" method="post">
+
+    @if (ViewBag.Info != null)
+    {
+
+        <h1 class="alert alert-warning" role="alert">@ViewBag.Info</h1>
+    }
+    <h2>Item Report</h2>
+    <hr />
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Code</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="ItemCode">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="CategoryId">
+                <option value="a">All</option>
+                @foreach (var c in ViewBag.Categories)
+                {
+                    <option value="@c.Id">@c.Description</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Brand</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="BrandId">
+                <option value="a">All</option>
+                @foreach (var b in ViewBag.Brands)
+                {
+                    <option value="@b.Id">@b.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Preview</button>
+        </div>
+    </div>
+</form>
