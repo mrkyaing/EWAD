@@ -25,19 +25,8 @@ namespace CloudPOS.Reports.Common
                     ExportedAt = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
                 }).ToList();
 
-            else if (brandId != "a")
-                items = _itemService.GetAll().Where(x => x.BrandId == brandId).Select(s => new ItemDetailReportDataSet
-                {
-                    ItemCode = s.ItemCode,
-                    ItemDescription = s.ItemDescription,
-                    BrandInfo = s.BrandInfo,
-                    CategoryInfo = s.CategoryInfo,
-                    PurchasePrice = s.PurchasePrice,
-                    SalePrice = s.SalePrice,
-                    ExportedAt = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
-                }).ToList();
-            else if (categoryId != "a")
-                items = _itemService.GetAll().Where(x => x.CategoryId == categoryId).Select(s => new ItemDetailReportDataSet
+            else if (brandId != "a" || categoryId != "a")
+                items = _itemService.GetAll().Where(x => x.BrandId == brandId || x.CategoryId == categoryId).Select(s => new ItemDetailReportDataSet
                 {
                     ItemCode = s.ItemCode,
                     ItemDescription = s.ItemDescription,
