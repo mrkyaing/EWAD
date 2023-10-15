@@ -1,10 +1,11 @@
-﻿using CloudPOS.DAO;
-using CloudPOS.Models.ViewModels;
+﻿using CloudPOS.Models.ViewModels;
 using CloudPOS.Reports.Common;
+using CloudPOS.Reports.DataSets;
 using CloudPOS.Services;
 using CloudPOS.Utlis;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CloudPOS.Controllers
 {
@@ -15,8 +16,10 @@ namespace CloudPOS.Controllers
         private readonly IBrandService _brandService;
         private readonly IReporting _reporting;
 
-        public ItemController(IItemService itemService,ICategoryService categoryService,IBrandService brandService,IReporting reporting)
-        {
+        public ItemController(IItemService itemService,
+            ICategoryService categoryService,
+            IBrandService brandService,
+            IReporting reporting){
             _itemService = itemService;
             _categoryService = categoryService;
             _brandService = brandService;
@@ -97,23 +100,24 @@ namespace CloudPOS.Controllers
             return RedirectToAction("List");
         }
         
+        [Authorize(Roles ="admin")]
         public IActionResult ReportBy()
         {
             ViewBag.Categories = _categoryService.GetAll();
             ViewBag.Brands = _brandService.GetAll();
             return View();
         }
+
         [HttpPost,Authorize(Roles ="admin")]
         public IActionResult ReportBy(string itemCode,string categoryId,string brandId) 
         {
             string fileDownloadName = $"itemReport{Guid.NewGuid():N}.xlsx";
-            var data = _reporting.GetItemReportBy(itemCode,categoryId,brandId);
-            if (data.Count > 0)
+            IList <ItemDetailReportDataSet> itemDetailReportDataSets=_reporting.GetItemReportBy(itemCode, brandId, categoryId);
+            if (itemDetailReportDataSets.Count > 0)
             {
-                ViewBag.Info = "Export is successfully completed.";
-                var fileContentsInBytes = ReportHelper.ExportToExcel<ItemViewModel>(data, fileDownloadName);
+                var fileContentsInBytes = ReportHelper.ExportToExcel(itemDetailReportDataSets, fileDownloadName);
                 var contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                return File(fileContentsInBytes, contentType,fileDownloadName);
+                return File(fileContentsInBytes,contentType,fileDownloadName);
             }
             else
             {
@@ -122,6 +126,7 @@ namespace CloudPOS.Controllers
                 ViewBag.Brands = _brandService.GetAll();
                 return View();
             }
+            
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿<form action="/item/ReportBy" method="post">
-
     @if (ViewBag.Info != null)
     {
-
         <h1 class="alert alert-warning" role="alert">@ViewBag.Info</h1>
     }
-    <h2>Item Report</h2>
+    <h2>Item Detail Report</h2>
     <hr />
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Code</label>
@@ -39,7 +37,7 @@
     </div>
     <div class="row mb-3">
         <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Preview</button>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Export</button>
         </div>
     </div>
 </form>

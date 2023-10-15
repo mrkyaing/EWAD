@@ -44,7 +44,8 @@ namespace CloudPOS.Services
                 SalePrice=s.SalePrice,
                 PurchasePrice=s.PurchasePrice,
                 CreatedAt=s.CreatedAt,
-                //s.Brand.name,
+                CategoryId=s.CategoryId,
+                BrandId=s.BrandId,
                 BrandInfo=_unitOfWork.BrandRepository.ReteriveBy(r=>r.Id==s.BrandId).FirstOrDefault().Name,
                 CategoryInfo= _unitOfWork.CategoryRepository.ReteriveBy(r => r.Id == s.CategoryId).FirstOrDefault().Description
             }).OrderBy(o=>o.ItemCode);
