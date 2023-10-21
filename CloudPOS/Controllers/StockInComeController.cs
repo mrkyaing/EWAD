@@ -10,16 +10,17 @@ namespace CloudPOS.Controllers
 {
     public class StockInComeController : Controller
     {
-        private readonly ItemService _itemService;
+        private readonly IItemService _itemService;
         private readonly ICategoryService _categoryService;
         private readonly IBrandService _brandService;
         private readonly IReporting _reporting;
         private readonly IStockInComeService _stockInComeService;
 
-        public StockInComeController(ItemService itemService,
+        public StockInComeController(IItemService itemService,
             ICategoryService categoryService,
             IBrandService brandService,
-            IReporting reporting,IStockInComeService stockInComeService){
+            IReporting reporting,
+            IStockInComeService stockInComeService){
             _itemService = itemService;
             _categoryService = categoryService;
             _brandService = brandService;

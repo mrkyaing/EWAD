@@ -1,25 +1,22 @@
-﻿@model IEnumerable<ItemViewModel>
+﻿@model IEnumerable<StockInComeViewModel>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link href="~/lib/datatables/css/datatables.bootstrap4.min.css" rel="stylesheet" />
 </head>
-<h1>item Information</h1>
+<h1>stock income Information</h1>
 <hr />
 @if (TempData["Info"] != null)
 {
     <h3 class="alert alert-success" role="alert">@TempData["Info"]</h3>
 }
-<a href="/item/entry" class="btn btn-primary" role="button"><i class="bi bi-plus-circle-fill"></i>Add</a>
+<a href="/stockincome/entry" class="btn btn-primary" role="button"><i class="bi bi-plus-circle-fill"></i>Add</a>
 <table class="table" id="ItemTable">
     <thead>
         <tr>
             <th scope="col">Sr.No</th>
-            <th scope="col">Code</th>
-            <th scope="col">Description</th>
-            <th scope="col">Purchase </th>
-            <th scope="col">Sale Price</th>
-            <th scope="col">Brand </th>
-            <th scope="col">Category</th>
+            <th scope="col">StockIncomed Date</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Item Infos </th>
             <th scope="col">Created At</th>
             @if (User.IsInRole("admin"))
             {
@@ -35,18 +32,15 @@
         {
             <tr>
                 <th scope="row">@i</th>
-                <td>@c.ItemCode</td>
-                <td>@c.ItemDescription</td>
-                <td>@c.PurchasePrice</td>
-                <td>@c.SalePrice</td>
-                <td>@c.BrandInfo</td>
-                <td>@c.CategoryInfo</td>
-                <td>@c.CreatedAt</td>
+                <td>@c.IncomedDate.ToString("dd-MM-yyyyy")</td>
+                <td>@c.Qty</td>
+                <td>@c.ItemInfo</td>
+                <td>@c.CreatedDate</td>
                 @if (User.IsInRole("admin"))
                 {
                     <td>
-                        <a href="/item/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
-                    <a href="/item/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
+                        <a href="/stockincome/edit?Id=@c.Id" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i>Edit</a>
+                        <a href="/stockincome/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
                 </td>
                 }
             </tr>

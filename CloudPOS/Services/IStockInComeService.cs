@@ -9,5 +9,6 @@ namespace CloudPOS.Services
         void Update(StockInComeViewModel vm);
         void Delete(string Id);
         StockInComeViewModel GetBy(string Id);
+        bool CheckStockItemAlreadyExistsInStockBalance(string itemId);
     }
 }

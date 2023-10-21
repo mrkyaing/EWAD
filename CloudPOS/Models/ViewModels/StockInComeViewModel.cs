@@ -7,5 +7,6 @@
         public string ItemId { get; set; }
         public string ItemInfo { get; set; }
         public decimal Qty { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

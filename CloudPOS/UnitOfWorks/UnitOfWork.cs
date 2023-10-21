@@ -40,11 +40,20 @@ namespace CloudPOS.UnitOfWorks
         }
 
         #endregion
+
         #region define the StockInComeRepository
         private IStockInComeRepository _stockInComeRepository;
         public IStockInComeRepository StockInComeRepository
         {
             get { return _stockInComeRepository = _stockInComeRepository ?? new StockInComeRepository(_appDbContext); }
+        }
+        #endregion
+
+        #region define the StockBalanceRepository
+        private IStockBalanceRepository _stockBalanceRepository;
+        public IStockBalanceRepository StockBalanceRepository
+        {
+            get { return _stockBalanceRepository = _stockBalanceRepository ?? new StockBalanceRepository(_appDbContext); }
         }
         #endregion
 
