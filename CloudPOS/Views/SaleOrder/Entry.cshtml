@@ -1,0 +1,57 @@
+﻿<form action="/saleorder/AddToCart" method="post">
+    @if (ViewBag.Info != null)
+    {
+        <h1 class="alert alert-success" role="alert">@ViewBag.Info</h1>
+    }
+    <h2>Sale Order Process</h2>
+    <hr />
+    <fieldset>
+        <legend style="text-align:center">Sale</legend>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Voucher No</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="VoucherNo" required value="@ViewBag.VoucherNo">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Saled date</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="SaledDate" required value="@ViewBag.SaledDate">
+            </div>
+        </div>
+    </fieldset>
+   
+   <fieldset>
+        <legend style="text-align:center">Sale Detail</legend>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Item</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="ItemId">
+                    @foreach (var c in ViewBag.Items)
+                    {
+                        <option value="@c.Id">@c.ItemCode @c.ItemDescription</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Quantity</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="Qty" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Remark</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="Remark" required>
+            </div>
+        </div>
+   </fieldset> 
+    
+    <div class="row mb-3">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i>Add to Cart</button>
+            <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i>CheckOut Sale Order</button>
+        </div>
+    </div>
+</form>
