@@ -17,7 +17,7 @@
             <select class="form-control" name="ItemId">
                 @foreach (var c in ViewBag.Items)
                 {
-                    <option value="@c.Id">@c.ItemCode</option>
+                    <option value="@c.Id">@c.ItemCode @c.ItemDescription</option>
                 }
             </select>
         </div>

@@ -17,7 +17,7 @@ namespace CloudPOS.UnitOfWorks
         private IItemRepository _itemRepository;
         public IItemRepository ItemRepository
         {
-            get 
+            get
             {
                 return _itemRepository = _itemRepository ?? new ItemRepository(_appDbContext);
             }
@@ -55,8 +55,21 @@ namespace CloudPOS.UnitOfWorks
         {
             get { return _stockBalanceRepository = _stockBalanceRepository ?? new StockBalanceRepository(_appDbContext); }
         }
+
         #endregion
 
+        private ISaleRepository _saleRepository;
+        public ISaleRepository SaleRepository 
+        {
+            get { return _saleRepository = _saleRepository ?? new SaleRepository(_appDbContext); }
+        }
+
+        private ISaleDetailRepository _saleDetailRepository;
+        public ISaleDetailRepository SaleDetailRepository
+        {
+            get { return _saleDetailRepository = _saleDetailRepository ?? new SaleDetailRepository(_appDbContext); }
+
+        }
         #region define the transactions methods
         public void Commit()
         {

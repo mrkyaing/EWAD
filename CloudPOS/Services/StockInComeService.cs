@@ -48,6 +48,7 @@ namespace CloudPOS.Services
         {
             var stockBalanceEntity = _unitOfWork.StockBalanceRepository.ReteriveBy(x => x.ItemId == stockInComeEntity.ItemId).FirstOrDefault();
             stockBalanceEntity.Qty += stockInComeEntity.Qty;
+            stockBalanceEntity.ModifiedAt = DateTime.Now;
             _unitOfWork.StockBalanceRepository.Update(stockBalanceEntity);
             _unitOfWork.Commit();
         }
