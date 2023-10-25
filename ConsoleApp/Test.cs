@@ -12,6 +12,16 @@ namespace ConsoleApp {
             return age;
         }
 
+        public HashSet<int> GetAge()
+        {
+            HashSet<int> result = new HashSet<int>();
+            result.Add(1);
+            result.Add(2);
+            result.Add(3);
+            result.Add(3);
+            result.Add(4);
+            return result;
+        }
     }
 }
 

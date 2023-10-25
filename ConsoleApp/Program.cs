@@ -57,6 +57,13 @@ try {
     Console.WriteLine($"add result is {r}");//2
     int age = t.CheckAge(10);
     Console.WriteLine($"Age is {age}"); // 10 
+    var ages = t.GetAge();
+    ages.Add(1);
+    ages.Add(7);
+    ages.Add(7);
+    Console.WriteLine("=======================***=======================");
+    foreach(var a in ages) Console.WriteLine(a);
+    Console.WriteLine("=======================***=======================");
 }
 catch (Exception e) {
     Console.WriteLine(e.Message);// invalid age 
@@ -81,3 +88,4 @@ for(int jj = 1; jj <= 100; jj++) {
 
 CollectionPractice practice = new CollectionPractice();
 practice.SettingNumbers();
+Console.ReadKey();
