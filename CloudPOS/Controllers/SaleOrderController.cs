@@ -50,7 +50,8 @@ namespace CloudPOS.Controllers
         }
         public IActionResult List()
         {
-            return View();
+            var saleOrderDetails = _saleProcessService.GetAll();
+            return View(saleOrderDetails);
         }
         public IActionResult CheckCart(SaleViewModel saleViewModel)
         {
@@ -82,7 +83,8 @@ namespace CloudPOS.Controllers
                 foreach(var itemDetail in cart)
                 {                  
                     _saleProcessService.Create(saleViewModel, itemDetail);
-                }              
+                }
+                SessionHelper.ClearSession(HttpContext.Session);
             }
             catch (Exception e)
             {
@@ -90,5 +92,7 @@ namespace CloudPOS.Controllers
             }
             return RedirectToAction("List");
         }
+    
+         
     }
 }

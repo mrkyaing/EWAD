@@ -14,5 +14,10 @@ namespace CloudPOS.Utlis
             var value = session.GetString(key);
             return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
         }
+
+        public static void ClearSession(this ISession session)
+        {
+            session.Clear();
+        }
     }
 }

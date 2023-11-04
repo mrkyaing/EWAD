@@ -22,8 +22,6 @@ namespace CloudPOS.Services
                 SaledDate=salevm.SaledDate,
                 TotalPrice=salevm.TotalPrice
             };
-            _unitOfWork.SaleRepository.Create(sale);
-
             var saleDetail = new SaleDetailEntity()
             {
                 Id = Guid.NewGuid().ToString(),
@@ -31,21 +29,31 @@ namespace CloudPOS.Services
                 ItemId = saleDetailvm.ItemId,//foreign key of item table
                 Qty = saleDetailvm.Qty,
                 Remark = saleDetailvm.Remark
-            };
-            _unitOfWork.SaleDetailRepository.Create(saleDetail);
+            };           
             //updating the stock balance
-
             var stockBalanceEntity = _unitOfWork.StockBalanceRepository.ReteriveBy(x => x.ItemId == saleDetail.ItemId).FirstOrDefault();
-            stockBalanceEntity.Qty -= saleDetail.Qty;
-            stockBalanceEntity.ModifiedAt = DateTime.Now;
-            _unitOfWork.StockBalanceRepository.Update(stockBalanceEntity);
-            
+            if (stockBalanceEntity!=null && stockBalanceEntity.Qty > saleDetail.Qty)
+            {
+                _unitOfWork.SaleRepository.Create(sale);
+                _unitOfWork.SaleDetailRepository.Create(saleDetail);
+                stockBalanceEntity.Qty -= saleDetail.Qty;
+                stockBalanceEntity.ModifiedAt = DateTime.Now;
+                _unitOfWork.StockBalanceRepository.Update(stockBalanceEntity);
+            }
             _unitOfWork.Commit();
         }
 
         public IList<SaleDetailViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.SaleDetailRepository.ReteriveAll().Select(x=>new SaleDetailViewModel
+            {
+            //ItemInfo=_unitOfWork.ItemRepository.ReteriveBy(r=>r.Id==x.ItemId).
+            ItemInfo="NA",
+            UnitPrice=101,
+            Qty=x.Qty,
+            Remark=x.Remark,
+            ItemId=x.ItemId,
+            }).ToList();
         }
     }
 }
