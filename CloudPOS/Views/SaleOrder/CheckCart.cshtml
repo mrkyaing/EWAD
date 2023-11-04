@@ -1,0 +1,76 @@
+﻿@model IList<SaleDetailViewModel>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="~/lib/datatables/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<h1>Cart Item are as following</h1>
+<hr />
+<form action="/saleorder/paid" method="post">
+<fieldset>
+    <legend style="text-align:center">Sale</legend>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Voucher No</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="VoucherNo" required value="@TempData["VoucherNo"]">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Saled date</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="SaledDate" required value="@TempData["SaledDate"]">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Total Price</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="TotalPrice" required value="@TempData["TotalPrice"]">
+        </div>
+    </div>
+</fieldset>
+<table class="table" id="cartTable">
+    <thead>
+        <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Item</th>
+                <th scope="col">Unit Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Remark</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var c in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@c.ItemId</td>
+                    <td>@c.UnitPrice</td>
+                <td>@c.Qty</td>
+                <td>@c.Remark</td>
+                    <td>                       
+                        <a href="/saleOrder/remove?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to remove this record?');"><i class="bi bi-trash"></i>remove</a>
+                    </td>
+                
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+<div class="row mb-3">
+    <div class="col-sm-10">
+        <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i>Paid</button>
+         <button type="button" class="btn btn-primary" id="btnAddToCart"><i class="bi bi-floppy"></i>Continue Add To Cart</button>
+    </div>
+</div>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#cartTable").DataTable();
+    });
+</script>
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.datatables.min.js"></script>
+    <script src="~/lib/datatables/js/datatables.bootstrap4.min.js"></script>
+}

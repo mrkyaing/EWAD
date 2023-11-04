@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();//for storing data AddToCart
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();//register the Unit Of Work for all repositories for it.
 builder.Services.AddTransient<IItemService, ItemService>();//register the Item domain for curd process
 builder.Services.AddTransient<ICategoryService, CategoryService>();//register the category domain for curd process
@@ -33,6 +34,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseSession();//for storing addToCart function
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(name: "default",pattern: "{controller=Home}/{action=Index}/{id?}");
