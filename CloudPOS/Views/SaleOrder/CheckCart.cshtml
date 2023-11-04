@@ -11,19 +11,19 @@
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Voucher No</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="VoucherNo" required value="@TempData["VoucherNo"]">
+            <input type="text" class="form-control" name="VoucherNo" required value="@TempData["VoucherNo"]" readonly>
         </div>
     </div>
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Saled date</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="SaledDate" required value="@TempData["SaledDate"]">
+            <input type="text" class="form-control" name="SaledDate" required value="@TempData["SaledDate"]" readonly>
         </div>
     </div>
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Total Price</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="TotalPrice" required value="@TempData["TotalPrice"]">
+            <input type="text" class="form-control" name="TotalPrice" required value="@TempData["TotalPrice"]" readonly>
         </div>
     </div>
 </fieldset>
@@ -32,7 +32,7 @@
         <tr>
             <th scope="col">Sr.No</th>
             <th scope="col">Item</th>
-                <th scope="col">Unit Price</th>
+             <th scope="col">Unit Price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Remark</th>
         </tr>
@@ -45,14 +45,13 @@
         {
             <tr>
                 <th scope="row">@i</th>
-                <td>@c.ItemId</td>
-                    <td>@c.UnitPrice</td>
+                <td>@c.ItemInfo</td>
+                <td>@c.UnitPrice</td>
                 <td>@c.Qty</td>
                 <td>@c.Remark</td>
-                    <td>                       
-                        <a href="/saleOrder/remove?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to remove this record?');"><i class="bi bi-trash"></i>remove</a>
-                    </td>
-                
+                <td>                       
+                <a href="/saleOrder/remove?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to remove this record?');"><i class="bi bi-trash"></i>remove</a>
+                </td>               
             </tr>
             i++;
         }
@@ -61,8 +60,8 @@
 <div class="row mb-3">
     <div class="col-sm-10">
         <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i>Paid</button>
-         <button type="button" class="btn btn-primary" id="btnAddToCart"><i class="bi bi-floppy"></i>Continue Add To Cart</button>
-    </div>
+            <a href="/saleOrder/entry" class="btn btn-warning" role="button" onclick="return confirm('are you sure to go to add to cart');"><i class="bi bi-trash"></i>Continue Shopping</a>
+        </div>
 </div>
 </form>
 <script>

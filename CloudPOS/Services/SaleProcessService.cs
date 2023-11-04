@@ -18,6 +18,7 @@ namespace CloudPOS.Services
             var sale = new SaleEntity()
             {
                 Id=Guid.NewGuid().ToString(),
+                VoucherNo=salevm.VoucherNo,
                 SaledDate=salevm.SaledDate,
                 TotalPrice=salevm.TotalPrice
             };
@@ -32,7 +33,13 @@ namespace CloudPOS.Services
                 Remark = saleDetailvm.Remark
             };
             _unitOfWork.SaleDetailRepository.Create(saleDetail);
+            //updating the stock balance
 
+            var stockBalanceEntity = _unitOfWork.StockBalanceRepository.ReteriveBy(x => x.ItemId == saleDetail.ItemId).FirstOrDefault();
+            stockBalanceEntity.Qty -= saleDetail.Qty;
+            stockBalanceEntity.ModifiedAt = DateTime.Now;
+            _unitOfWork.StockBalanceRepository.Update(stockBalanceEntity);
+            
             _unitOfWork.Commit();
         }
 
