@@ -47,4 +47,32 @@
     <_ContentIncludedByDefault Remove="Views\StockInCome\Edit.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\ecommerce\css\.DS_Store" />
+    <None Include="wwwroot\ecommerce\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\ecommerce\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\ecommerce\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\ecommerce\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\ecommerce\css\bootstrap.css.map" />
+    <None Include="wwwroot\ecommerce\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\ecommerce\js\.DS_Store" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.js" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.js.map" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.min.js" />
+    <None Include="wwwroot\ecommerce\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\ecommerce\js\custom.js" />
+    <None Include="wwwroot\ecommerce\js\jquery-3.0.0.min.js" />
+    <None Include="wwwroot\ecommerce\js\jquery.mCustomScrollbar.concat.min.js" />
+    <None Include="wwwroot\ecommerce\js\jquery.min.js" />
+    <None Include="wwwroot\ecommerce\js\jquery.validate.js" />
+    <None Include="wwwroot\ecommerce\js\modernizer.js" />
+    <None Include="wwwroot\ecommerce\js\plugin.js" />
+    <None Include="wwwroot\ecommerce\js\popper.min.js" />
+    <None Include="wwwroot\ecommerce\js\slider-setting.js" />
+  </ItemGroup>
+
 </Project>

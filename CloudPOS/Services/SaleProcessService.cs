@@ -42,18 +42,17 @@ namespace CloudPOS.Services
             }
             _unitOfWork.Commit();
         }
-
         public IList<SaleDetailViewModel> GetAll()
         {
             return _unitOfWork.SaleDetailRepository.ReteriveAll().Select(x=>new SaleDetailViewModel
             {
-            //ItemInfo=_unitOfWork.ItemRepository.ReteriveBy(r=>r.Id==x.ItemId).
-            ItemInfo="NA",
-            UnitPrice=101,
+            ItemInfo=_unitOfWork.ItemRepository.ReteriveBy(r=>r.Id==x.ItemId).SingleOrDefault().ItemCode,
+            UnitPrice= _unitOfWork.ItemRepository.ReteriveBy(r => r.Id == x.ItemId).SingleOrDefault().SalePrice,
             Qty=x.Qty,
             Remark=x.Remark,
             ItemId=x.ItemId,
-            }).ToList();
+            SaleOrderedAt=x.CreatedAt
+            }).OrderByDescending(o=>o.SaleOrderedAt).ToList();
         }
     }
 }

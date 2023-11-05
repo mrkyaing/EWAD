@@ -1,0 +1,42 @@
+﻿@model IList<UserViewModel>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="~/lib/datatables/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<h1>User Information</h1>
+<hr />
+<table class="table" id="userTable">
+    <thead>
+        <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">User Name</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Role</th>
+       
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var c in Model)
+        {
+            <tr>
+                <th scope="row">@i</th>
+                <td>@c.UserName</td>
+                <td>@c.Email</td>
+                <td>@c.Role</td>           
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $("#userTable").DataTable();
+    });
+</script>
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.datatables.min.js"></script>
+    <script src="~/lib/datatables/js/datatables.bootstrap4.min.js"></script>
+}

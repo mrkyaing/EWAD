@@ -9,5 +9,6 @@
         public decimal UnitPrice { get; set; }
         public int Qty { get; set; }
         public string Remark { get; set; }
+        public DateTime SaleOrderedAt { get; set; }
     }
 }

@@ -37,6 +37,6 @@ app.UseRouting();
 app.UseSession();//for storing addToCart function
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllerRoute(name: "default",pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(name: "default",pattern: "{controller=Home}/{action=IndexPublic}/{id?}");
 app.MapRazorPages();
 app.Run();

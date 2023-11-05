@@ -24,7 +24,10 @@ namespace CloudPOS.Controllers
             dashboardViewModel.Items=_itemService.GetAll().ToList();
             return View(dashboardViewModel);
         }
-
+        public IActionResult IndexPublic()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -14,10 +14,12 @@
     <thead>
         <tr>
             <th scope="col">Sr.No</th>
+            <th scope="col">Sale Order Date</th>
             <th scope="col">ItemInfo</th>
             <th scope="col">UnitPrice</th>
             <th scope="col">Qty </th>
             <th scope="col">Remark</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -28,12 +30,13 @@
         {
             <tr>
                 <th scope="row">@i</th>
+                <td>@c.SaleOrderedAt</td>
                 <td>@c.ItemInfo</td>
                 <td>@c.UnitPrice</td>
                 <td>@c.Qty</td>
                 <td>@c.Remark</td>
                  <td>                      
-                        <a href="/item/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
+                 <a href="/item/delete?Id=@c.Id" class="btn btn-danger" role="button" onclick="return confirm('are you sure to delete this record?');"><i class="bi bi-trash"></i>Delete</a>
                  </td>
             </tr>
             i++;
