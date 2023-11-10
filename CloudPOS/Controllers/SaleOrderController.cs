@@ -1,10 +1,12 @@
 ﻿using CloudPOS.Models.ViewModels;
 using CloudPOS.Services;
 using CloudPOS.Utlis;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CloudPOS.Controllers
 {
+    [Authorize]
     public class SaleOrderController : Controller
     {
         private readonly ISaleProcessService _saleProcessService;
@@ -91,8 +93,6 @@ namespace CloudPOS.Controllers
                 TempData["Info"] = "Error occur when saving ordering process :"+e.Message;
             }
             return RedirectToAction("List");
-        }
-    
-         
+        }     
     }
 }

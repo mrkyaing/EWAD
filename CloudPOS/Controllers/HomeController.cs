@@ -17,7 +17,6 @@ namespace CloudPOS.Controllers
             _logger = logger;
             _itemService = itemService;
         }
-        [Authorize(Roles ="admin")]
         public IActionResult Index()
         {
             DashboardViewModel dashboardViewModel = new DashboardViewModel();
