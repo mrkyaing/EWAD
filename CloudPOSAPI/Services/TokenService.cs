@@ -17,8 +17,7 @@ namespace CloudPOSAPI.Services
 
         public UserModel Authenticate(UserModel user)
         {
-            var currentUser = GetUsers().FirstOrDefault(x => x.Username.ToLower() ==
-                 user.Username.ToLower() && x.Password == user.Password);
+            var currentUser = GetUsers().FirstOrDefault(x => x.Username.ToLower() ==user.Username.ToLower() && x.Password == user.Password);
             if (currentUser != null)
             {
                 return currentUser;
@@ -40,15 +39,12 @@ namespace CloudPOSAPI.Services
                 claims,
                 expires: DateTime.Now.AddMinutes(1),
                 signingCredentials: credentials);
-
-
             return new TokenModel() { Token = new JwtSecurityTokenHandler().WriteToken(token) };
         }     
         private List<UserModel> GetUsers()
         {
             List<UserModel> Users = new()
             {
-                    new UserModel(){ Username="naeem",Password="naeem_admin",Role="Admin"},
                     new UserModel(){ Username="mk",Password="mk123",Role="Admin"},
                     new UserModel(){ Username="susu",Password="susu123",Role="Staff"}
             };
