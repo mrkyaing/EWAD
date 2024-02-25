@@ -11,8 +11,7 @@ namespace CloudPOSAPI.Services
         }
         public string GetUserId()
         {
-            return _context.HttpContext.User.Claims
-                       .First(i => i.Type == ClaimTypes.NameIdentifier).Value;
+            return _context.HttpContext.User.Claims.First(i => i.Type == ClaimTypes.NameIdentifier).Value;
         }
     }
 }

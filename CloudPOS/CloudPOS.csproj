@@ -75,4 +75,8 @@
     <None Include="wwwroot\ecommerce\js\slider-setting.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

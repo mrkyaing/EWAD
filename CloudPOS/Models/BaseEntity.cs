@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudPOS.Models
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         //Primary Key Column for related child Entity
         [Key]
@@ -11,6 +11,7 @@ namespace CloudPOS.Models
         //Audit Columns
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime ModifiedAt { get; set; }
-        public string IP { get; set; } = NetworkHelper.GetLocalIPAddress();
+        public bool IsInActive { get; set; } = default;
+        public string IpAddress { get; set; } = NetworkHelper.GetLocalIPAddress();
     }
 }

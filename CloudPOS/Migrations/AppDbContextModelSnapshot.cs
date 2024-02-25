@@ -34,9 +34,12 @@ namespace CloudPOS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IP")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ManufacturedCompany")
                         .HasColumnType("nvarchar(max)");
@@ -68,9 +71,12 @@ namespace CloudPOS.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IP")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
@@ -96,9 +102,12 @@ namespace CloudPOS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IP")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ItemCode")
                         .IsRequired()
@@ -134,9 +143,12 @@ namespace CloudPOS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IP")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ItemId")
                         .IsRequired()
@@ -173,9 +185,12 @@ namespace CloudPOS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IP")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
@@ -203,9 +218,12 @@ namespace CloudPOS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IP")
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ItemId")
                         .IsRequired()
@@ -235,12 +253,15 @@ namespace CloudPOS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("IP")
+                    b.Property<DateTime>("IncomedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IpAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("IncomedDate")
-                        .HasColumnType("datetime2");
+                    b.Property<bool>("IsInActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ItemId")
                         .IsRequired()

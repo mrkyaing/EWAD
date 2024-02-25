@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudPOS", "CloudPOS\CloudP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudPOSUnitTest", "CloudPOSUnitTest\CloudPOSUnitTest.csproj", "{D407FC63-3F71-41D8-BF48-34FD768F75CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudPOSAPI", "CloudPOSAPI\CloudPOSAPI.csproj", "{937E55AF-EF8A-4767-9DEA-1A5255016EB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudPOSAPI", "CloudPOSAPI\CloudPOSAPI.csproj", "{937E55AF-EF8A-4767-9DEA-1A5255016EB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
