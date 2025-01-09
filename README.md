@@ -1,4 +1,4 @@
-# EWAD (Enterprise Web Application Development) with .net core mvc
+# EWAD (Enterprise Web Application Development) with ASP.NET CORE MVC
 -  C# Language Fundamentals
 -  OOP with C# Language
 -  Design Pattern (most commonly-used patterns)
